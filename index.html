@@ -68,6 +68,42 @@
         console.log("Password: " + password);
         console.log("Subscribe: " + subscribe);
 
+        // create a div element with an id attribute and add it to the body to display the form data
+        var resultDiv = document.createElement("div");
+        resultDiv.setAttribute("id", "result");
+
+        // append the resultDiv to the body
+        document.body.appendChild(resultDiv);
+
+        // access the DOM elements using getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll
+        // var resultDiv = document.getElementById("result");
+        // var resultDiv = document.querySelector("#result");
+        // var emailInput = document.querySelector('input[name="email"]');
+        var resultDiv = document.getElementsByTagName("div")[4];
+
+        resultDiv.innerHTML = `
+            <h2>Form Data</h2>
+            <p>Email: ${email}</p>
+            <p>Password: ${password}</p>
+            <p>Subscribe: ${subscribe}</p>
+        `;
+
+        // upadate the css properties
+        resultDiv.style.backgroundColor = "lightgray";
+        resultDiv.style.padding = "10px";
+        resultDiv.style.color = "black";
+        resultDiv.style.fontSize = "16px";
+        resultDiv.style.fontFamily = "Arial, sans-serif";
+        resultDiv.style.border = "1px solid black";
+        resultDiv.style.borderRadius = "5px";
+        resultDiv.style.marginTop = "10px";
+
+        // set attributes on element
+        resultDiv.setAttribute("class", "container");
+
+        // add more classes to the element
+        resultDiv.classList.add("bg-primary", "text-white");
+
         // TODO:: Send the data to a server using AJAX to process and store in a database
       }
     </script>
