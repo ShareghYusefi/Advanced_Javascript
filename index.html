@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Javascript</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <h1>Advanced Javascript</h1>
+    <!-- Without action attribute, the form will submit to the same page -->
+    <!-- We can use onsubmit attribute to call a function when the form is submitted -->
+    <form name="loginForm" onsubmit="handleSubmit(event)">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          name="email"
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          id="password"
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <input
+          name="subscribe"
+          type="checkbox"
+          class="form-check-input"
+          id="subscribe"
+        />
+        <label class="form-check-label" for="subscribe">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <script>
+      function handleSubmit(event) {
+        // process the form submission
+        event.preventDefault(); // prevent the default form submission
+
+        console.log("Form submitted");
+        console.log("Document object: ", document);
+        // document object represents the HTML document loaded in the browser
+        var loginForm = document.forms["loginForm"];
+        var email = loginForm["email"].value; // get the value of the email input
+        var password = loginForm["password"].value; // get the value of the password input
+        var subscribe = loginForm["subscribe"].checked; // get the checked state of the checkbox
+
+        console.log("Email: " + email);
+        console.log("Password: " + password);
+        console.log("Subscribe: " + subscribe);
+
+        // TODO:: Send the data to a server using AJAX to process and store in a database
+      }
+    </script>
+  </body>
+</html>
