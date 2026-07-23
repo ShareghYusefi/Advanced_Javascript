@@ -104,6 +104,12 @@
         // add more classes to the element
         resultDiv.classList.add("bg-primary", "text-white");
 
+        // add custom data using data-* attributes
+        resultDiv.setAttribute("data-custom", 7);
+
+        // accessing the data-* attribute using dataset property
+        console.log("Custom data: ", resultDiv.dataset.custom);
+
         // TODO:: Send the data to a server using AJAX to process and store in a database
       }
     </script>
